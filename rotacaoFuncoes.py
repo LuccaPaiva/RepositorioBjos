@@ -5,13 +5,6 @@
 # Panos: [13:16]
 from colorama import Fore, Back, Style
 
-moradores = ["Michelas", "Bide", "Ita", "Dante", "Kagawa", "PVC", "BeyBlade",
-             "Alceu", "Shot", "Ronaldao", "Bilu", "t", "Perda", "Miles", "Marqteto", "Matheus"]
-funcoes = []
-for i in range(0, len(moradores)):
-    funcoes.append(i)
-novasFuncoes = funcoes.copy()
-
 
 def printFuncoes(lista):
     print("Lixo:  ", lista[0:6])
@@ -91,9 +84,31 @@ def printTroca(moradores, funcoesAtuais):
     print()
 
 
-print("Funcoes")
-printFuncoes(funcoes)
-novasFuncoes1 = troca(funcoes)
+def line():
+    print("------------------------------------------------------------")
 
-print("Funcoes")
-printTroca(moradores, novasFuncoes1)
+
+moradores = ["Michelas", "Bide", "Ita", "Dante", "Kagawa", "PVC", "BeyBlade",
+             "Alceu", "Shot", "Ronaldao", "Bilu", "t", "Perda", "Miles", "Marqteto", "Matheus"]
+funcoes = [[]]
+for i in range(0, len(moradores)):
+    funcoes[0].append(i)
+novasFuncoes = funcoes.copy()
+
+
+def trocaNVezes(n: int, funcoes):
+    #n = (n % 4) + 1
+    for i in range(1, n):
+        #print(f"Funções: {i}")
+        funcoes.append(troca(funcoes[i-1]))
+        print(f"Semana: {i}")
+        printTroca(moradores, funcoes[i-1])
+        #printNovasFuncoes(funcoes[i-1], funcoes[i])
+    return funcoes[n-1]
+    # printFuncoes(funcoes[i])
+# printFuncoes(funcoes)
+#novasFuncoes1 = troca(funcoes)
+
+
+##printTroca(moradores, novasFuncoes1)
+funcao = trocaNVezes(8, funcoes)
