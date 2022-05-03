@@ -31,6 +31,8 @@ func = ["Lixo Organico", "Lixo Organico", "Lixo Banheiro", "Lixo Banheiro",
 moradores = [[] for i in range(0, 15)]
 moradores2 = [[] for i in range(0, 15)]
 funcoes = [i for i in range(0, 15)]
+datas = ["02/05", "16/05", "30/05", "13/06",
+         "27/06", "11/07", "25/07", "08/08", "22/08"]
 
 #morador = [2, 5, 7]
 #funcao = 13
@@ -52,6 +54,7 @@ def MelhorCandidato(moradores, funcao: int, iteracao: int):
         else:
             contagem.append(moradores[i].count(funcao))
     #print(f"contagem: {contagem}")
+    # no futuro gerar uma lista com os minimos e sortear um numero dela
     return contagem.index(min(contagem))
 
 
@@ -81,8 +84,13 @@ def Troca2(moradores: List, funcoes: list, iteracao: int):
                 break
 
 
-def PrintEscala(n: int, moradores: List, nomeMoradores: List):
-    print(tabulate(moradores, headers=[i for i in range(0, 15)]))
+def PrintEscala(n: int, moradores: List, nomeMoradores: List, datas=List):
+    lista = moradores.copy()
+    for i in range(0, len(moradores)):
+        lista[i].insert(0, nomeMoradores[i])
+    headers = [(f"Quinzena {datas[i]}") for i in range(0, 9)]
+    headers.insert(0, "Morador")
+    print(tabulate(lista, headers))
     print()
 
 
@@ -99,5 +107,5 @@ for i in range(0, n):
     Troca2(moradores2, func, i)
     #Troca(moradores, func)
     # print(moradores2)
-PrintEscala(n, moradores2, nomesMoradores)
+PrintEscala(n, moradores2, nomesMoradores, datas)
 #PrintEscalaSemana(i, moradores, nomesMoradores)
