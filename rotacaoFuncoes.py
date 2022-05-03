@@ -66,19 +66,19 @@ def troca(funcoes):
 
 
 def printTroca(moradores, funcoesAtuais):
-    print(Fore.WHITE, "Lixo:\t\t ", end="")
+    print(Fore.WHITE, "- Lixo:\t\t ", end="")
     for i in range(0, 6):
         print(Fore.RED, moradores[funcoesAtuais[i]], end="")
     print()
-    print(Fore.WHITE, "Area Externa:\t ", end="")
+    print(Fore.WHITE, "- Area Externa:\t ", end="")
     for i in range(6, 10):
         print(Fore.GREEN, moradores[funcoesAtuais[i]], end="")
     print()
-    print(Fore.WHITE, "Bosta do Napo:\t ", end="")
+    print(Fore.WHITE, "- Bosta do Napo:\t ", end="")
     for i in range(10, 13):
         print(Fore.BLUE, moradores[funcoesAtuais[i]], end="")
     print()
-    print(Fore.WHITE, "Panos e Louças: ", end="")
+    print(Fore.WHITE, "- Panos e Louças: ", end="")
     for i in range(13, 16):
         print(Fore.LIGHTMAGENTA_EX, moradores[funcoesAtuais[i]], end="")
     print()
@@ -101,7 +101,7 @@ def trocaNVezes(n: int, funcoes):
     for i in range(1, n):
         #print(f"Funções: {i}")
         funcoes.append(troca(funcoes[i-1]))
-        print(f"Semana: {i}")
+        print(f"#### Semana: {i}")
         printTroca(moradores, funcoes[i-1])
         #printNovasFuncoes(funcoes[i-1], funcoes[i])
     return funcoes[n-1]
@@ -111,4 +111,4 @@ def trocaNVezes(n: int, funcoes):
 
 
 ##printTroca(moradores, novasFuncoes1)
-funcao = trocaNVezes(8, funcoes)
+funcao = trocaNVezes(9, funcoes)
