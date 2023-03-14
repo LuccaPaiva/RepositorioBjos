@@ -28,7 +28,9 @@ Tambem serão considerados aspectos como:
 3. Amplitude da solução - número de vezes que ela atribui as tarefas
 4. Baixa repetição - evitar que uma pessoa receba a mesma função repetidas vezes
 5. Repetibilidade - gerar a mesma saida em diferentes execuções
+6. Pontos extras pra quem upar a solução aqui no git
 
 
+Um exemplo de solução base pode ser visto neste repositório
 
 
